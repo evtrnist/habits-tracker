@@ -7,8 +7,10 @@ import {
     AngularFirestoreDocument,
 } from '@angular/fire/compat/firestore';
 
-@Injectable()
-export class AuthService {
+@Injectable({
+    providedIn: 'root',
+})
+export class AuthApi {
     constructor(
         private angularFirestore: AngularFirestore,
         private angularFireAuth: AngularFireAuth

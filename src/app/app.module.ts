@@ -9,7 +9,6 @@ import { environment } from 'src/environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CoreModule } from './core/core.module';
 
 @NgModule({
     declarations: [AppComponent],
@@ -19,7 +18,6 @@ import { CoreModule } from './core/core.module';
         AngularFireModule.initializeApp(environment.firebaseConfig),
         AngularFireAuthModule,
         AngularFirestoreModule,
-        CoreModule,
     ],
     providers: [],
     bootstrap: [AppComponent],

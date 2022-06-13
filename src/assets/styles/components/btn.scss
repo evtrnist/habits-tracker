@@ -1,0 +1,14 @@
+.btn {
+    @include btn-reset();
+    padding: 3%;
+
+    font-size: 15px;
+    font-weight: 500;
+    color: $color_white;
+
+    background-color: $accent_color;
+    border-radius: 8px;
+    @media ($width-tablet) {
+        font-size: 17px;
+    }
+}

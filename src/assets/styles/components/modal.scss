@@ -1,0 +1,76 @@
+@import '../variables';
+@import '../_mixins';
+
+@keyframes modalAnimate {
+    from {
+        opacity: 0;
+        transform: scale3d(0.3, 0.3, 0.3);
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+.modal-open {
+    overflow: hidden;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    min-width: 320px;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    overflow-y: auto;
+
+    .close {
+        display: none;
+    }
+
+    &__inner {
+        position: absolute;
+        top: 10%;
+        left: calc(50% - 250px);
+        display: flex;
+        flex-direction: column;
+        padding: 15px;
+        width: 500px;
+        height: 400px;
+        background-color: #fff;
+        border-radius: 3px;
+        box-shadow: 0 2px 4px 0 rgba($color_black, 0.06);
+        animation: modalAnimate 0.3s;
+    }
+
+    &__close {
+        @include btn-reset();
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 35px;
+        height: 35px;
+        font-size: 0;
+        background-color: #000;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+
+        &:focus {
+            outline: none;
+        }
+    }
+}
+
+.modal-overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    bottom: 0;
+    left: 0;
+    overflow: auto;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1005;
+}

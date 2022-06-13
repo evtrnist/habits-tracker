@@ -1,0 +1,23 @@
+@import '../../../../assets/styles/helpers';
+@import '../../../../assets/styles/components/btn.scss';
+
+:host {
+    display: block;
+    margin: 5% auto;
+    width: 80%;
+
+    @media ($width-tablet) {
+        margin: 20% auto;
+        max-width: 60%;
+    }
+}
+
+.card {
+    padding: 3%;
+    background-color: $color_white;
+    border-radius: 25px;
+
+    @media ($width-tablet) {
+        padding: 10% 15%;
+    }
+}

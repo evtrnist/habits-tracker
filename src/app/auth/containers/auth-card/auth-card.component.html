@@ -1,0 +1,18 @@
+<section class="card">
+    <h2>Welcome to Habits Tracker</h2>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <app-custom-input
+            [label]="'Your login'"
+            [placeholder]="'Email'"
+            [type]="'email'"
+            formControlName="email"
+        ></app-custom-input>
+        <app-custom-input
+            [label]="'Your password'"
+            [placeholder]="'password'"
+            [type]="'password'"
+            formControlName="password"
+        ></app-custom-input>
+        <button class="btn" type="submit">Continue</button>
+    </form>
+</section>

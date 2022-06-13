@@ -6,6 +6,7 @@ import {
     AngularFirestore,
     AngularFirestoreDocument,
 } from '@angular/fire/compat/firestore';
+import { UserCredential } from '../models/user-credential';
 
 @Injectable({
     providedIn: 'root',
@@ -16,13 +17,16 @@ export class AuthApi {
         private angularFireAuth: AngularFireAuth
     ) {}
 
-    signIn(email: string, password: string) {
-        this.angularFireAuth.signInWithEmailAndPassword(email, password);
+    signIn(email: string, password: string): Promise<unknown> {
+        return this.angularFireAuth.signInWithEmailAndPassword(email, password);
     }
 
-    signUp(email: string, password: string) {
+    signUp(email: string, password: string): Promise<unknown> {
         // TO DO: send verification email
-        this.angularFireAuth.createUserWithEmailAndPassword(email, password);
+        return this.angularFireAuth.createUserWithEmailAndPassword(
+            email,
+            password
+        );
     }
 
     signOut() {

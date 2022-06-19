@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthApi } from '../../api/auth.api';
 
@@ -9,7 +9,7 @@ import { AuthApi } from '../../api/auth.api';
     styleUrls: ['./auth-card.component.scss'],
 })
 export class AuthCardComponent implements OnInit {
-    form: FormGroup;
+    form: UntypedFormGroup;
 
     constructor(private authService: AuthApi, private router: Router) {
         this.buildForm();
@@ -29,9 +29,9 @@ export class AuthCardComponent implements OnInit {
     }
 
     private buildForm() {
-        this.form = new FormGroup({
-            email: new FormControl('', Validators.required),
-            password: new FormControl('', Validators.required),
+        this.form = new UntypedFormGroup({
+            email: new UntypedFormControl('', Validators.required),
+            password: new UntypedFormControl('', Validators.required),
         });
     }
 }

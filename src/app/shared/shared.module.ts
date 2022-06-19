@@ -8,7 +8,6 @@ import { HeaderUserComponent } from './components/header-user/header-user.compon
 @NgModule({
     declarations: [HeaderComponent, CustomInputComponent],
     imports: [CommonModule, FormsModule, ReactiveFormsModule],
-    entryComponents: [HeaderUserComponent],
-    exports: [CustomInputComponent, HeaderComponent],
+    exports: [CustomInputComponent, HeaderComponent]
 })
 export class SharedModule {}

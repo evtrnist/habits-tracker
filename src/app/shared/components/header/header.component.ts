@@ -5,6 +5,8 @@ import {
     ViewChild,
     ViewContainerRef,
 } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthApi } from 'src/app/auth/api/auth.api';
 import { HeaderUserComponent } from '../header-user/header-user.component';
 
 @Component({
@@ -13,23 +15,27 @@ import { HeaderUserComponent } from '../header-user/header-user.component';
     styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-    @ViewChild('headerUser', { read: ViewContainerRef })
-    private viewRef: ViewContainerRef;
-    private componentRef: ComponentRef<HeaderUserComponent>;
+    isShownUser = false;
 
-    constructor() {}
+    constructor(private authApi: AuthApi, private router: Router) {}
 
     ngOnInit(): void {
         console.log(123);
     }
 
-    toggle() {
-        if (this.viewRef.get(0)) {
-            this.viewRef.clear();
-        } else {
-            this.viewRef.clear();
-            this.componentRef =
-                this.viewRef.createComponent(HeaderUserComponent);
+    open(evt: Event) {
+        this.isShownUser = true;
+        evt.stopPropagation();
+    }
+
+    close() {
+        if (this.isShownUser) {
+            this.isShownUser = false;
         }
+    }
+
+    async logOut() {
+        await this.authApi.signOut();
+        this.router.navigate(['/auth']);
     }
 }

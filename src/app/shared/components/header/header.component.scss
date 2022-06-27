@@ -1,0 +1,38 @@
+@import '../../../../assets/styles/helpers';
+
+.header {
+    @include glass(0.25);
+    padding: 16px;
+
+    &__container {
+        @include container();
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: fit-content;
+        color: $color_text;
+        text-decoration: none;
+    }
+    &__logo {
+    }
+
+    &__name {
+        display: inline-block;
+        width: 50px;
+        margin: 0 10px;
+    }
+
+    &__btn {
+        @include btn-reset();
+        font-size: 0;
+    }
+
+    &__btn-icon {
+    }
+}

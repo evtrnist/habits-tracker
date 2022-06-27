@@ -1,1 +1,15 @@
-<p>header-user works!</p>
+<nav class="nav">
+    <ul class="nav__menu">
+        <li class="nav__menu-item">
+            <a
+                class="nav__menu-link"
+                [routerLink]="['/profile']"
+                routerLinkActive="nav__menu-link--active"
+                >Profile</a
+            >
+        </li>
+        <li class="nav__menu-item">
+            <a class="nav__menu-link" (click)="logOut()">Log out</a>
+        </li>
+    </ul>
+</nav>

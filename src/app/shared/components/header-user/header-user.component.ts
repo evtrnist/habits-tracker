@@ -1,14 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
     selector: 'app-header-user',
     templateUrl: './header-user.component.html',
     styleUrls: ['./header-user.component.scss'],
 })
-export class HeaderUserComponent implements OnInit {
-    constructor() {}
+export class HeaderUserComponent {
+    @Output() logOutChange = new EventEmitter<boolean>();
 
-    ngOnInit(): void {
-        console.log(1);
+    logOut() {
+        this.logOutChange.emit(true);
     }
 }

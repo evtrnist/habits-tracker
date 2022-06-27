@@ -1,10 +1,28 @@
-<header>
-    <div>
-        <a href=""> </a>
-        <button (click)="toggle()">
-            <img src="" alt="" />
-            <span>тык</span>
+<header class="header">
+    <div class="header__container">
+        <a href="" class="header__link">
+            <img
+                class="header__logo"
+                src="./../../../../assets/images/logo.svg"
+                alt=""
+                width="40"
+                height="40"
+            />
+            <span class="header__name">Habits tracker</span>
+        </a>
+        <button class="header__btn" (click)="open($event)">
+            <img
+                class="header__btn-icon"
+                src="./../../../../assets/images/settings.svg"
+                alt=""
+            />
+            <span>settings</span>
         </button>
-        <ng-container #headerUser></ng-container>
+        <app-header-user
+            *ngIf="isShownUser"
+            appClickOutside
+            (clickOutside)="close()"
+            (logOutChange)="logOut()"
+        ></app-header-user>
     </div>
 </header>
